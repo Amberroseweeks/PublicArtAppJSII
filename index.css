@@ -1,0 +1,106 @@
+#header {
+    width: 1233px;
+    height: 100px;
+
+
+    background: #828282;
+}
+
+#container {
+    display: flex;
+    flex-direction: row;
+}
+
+#art-content {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 300px; 
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+#photo-container {
+    align-content: flex-start;
+}
+#photo-container {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+
+    background: #F9F9F9;
+    margin: 10px;
+}
+
+#Artist-Title-h1 {
+
+font-family: Lato;
+font-style: normal;
+font-weight: bold;
+font-size: 25px;
+line-height: 66px;
+text-align: center;
+
+color: #000000;
+}
+
+#Artist-Date-h1 {
+font-family: Lato;
+font-style: normal;
+font-weight: normal;
+font-size: 22px;
+line-height: 50px;
+text-align: center;
+
+color: #000000;
+}
+
+.description-h2 {
+
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 38px;
+
+
+color: #000000;
+}
+
+.description-p {
+
+font-family: Lato;
+font-style: normal;
+font-weight: 300;
+font-size: 18px;
+line-height: 20px;
+
+
+color: #000000;
+}
+
+#footer {
+
+    width: 1233px;
+    height: 50px;
+    margin-top: 50px;
+
+
+    background: #D6D5D5;
+}
+
