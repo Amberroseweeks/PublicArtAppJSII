@@ -1,7 +1,7 @@
 
     
         function viewCompleteArtistData () {
-//            made a for loop for all the listed artists within the database, i used the artist is numbers
+//            made a for loop for all the listed artists within the database, i used the artits's id numbers
             var list = [];
             for (var i = 1; i <= 510; i++) {
             list.push(i);
@@ -14,7 +14,7 @@
             async function getArtTitleSpecific() {
             const response = await fetch(fullArtistListData);
             const data = await response.json();
-//            console.log(data.body.art)
+            console.log(data.body.art)
 
 //        i created an empty aray to push the data through
             let artistNameListing = [] 
@@ -82,3 +82,22 @@
 //just testing to see how i can print items in the array seperately
 var fruits = ["Apple", "Banana","Pineapple"];
 fruits.forEach(function(fruit){ console.log(fruit) });
+
+
+
+//test
+
+
+let submit = document.getElementById("submit")
+
+submit.addEventListener ("click", countries)
+
+function countries (){
+    $.ajax({
+        url: "https://www.philart.net/search.html?q=" + input.value,
+        success: function(countryData) {
+            console.log(countryData)
+            displayCountryData(countryData)
+        }
+    })
+}

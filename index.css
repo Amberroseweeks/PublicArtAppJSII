@@ -11,6 +11,64 @@
     flex-direction: row;
 }
 
+#navbar {
+width: 2712px;
+height: 72px;
+display: flex;
+border: none;
+
+background-color:rgba(0, 0, 0, 0.7);
+    
+}
+
+#search {
+    border: none;
+    border-radius: 10px;
+    background-color: #ffffff;
+    color: #ffffff;
+    margin: 20px;
+    margin-left: 40px;
+    float: right;
+
+    
+}
+
+input[type=text] {
+  width: 80px;
+  -webkit-transition: width 0.2s ease-in-out;
+  transition: width 0.2s ease-in-out;
+}
+
+input[type=text]:focus {
+  width: 10%;
+}
+
+.map-full {
+    color: #ffffff;
+    margin: 15px;
+}
+
+
+#top-nav-hero {
+  background-image: url("https://drive.google.com/uc?export=view&id=12U6M1QmFHb45JUK2baahQclGwa7k_GMj");
+  height: 300px;
+width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#hero-text {
+    background-color: #ffffff;
+    align-content: center;
+    position: absolute;
+    align-content: center;
+    top: 200px;
+    width: 70%;
+    height: 200px;
+    
+}
+
 #art-content {
     display: flex;
     flex-direction: column;
