@@ -1,101 +1,47 @@
-async function getArt () {
-    const response = await fetch ('https://www.philart.net/api.json');
-    const data = await response.json();
-    console.log(data)
-    console.log(data.links)
-}
-getArt();
+let artArray = [];
 
-
-async function getArt () {
-    const response = await fetch ('https://www.philart.net/api.json');
-    const data = await response.json();
-    console.log(data)
-    console.log(data.links)
-}
-getArt();
-
-
-const artists_url = "http://www.philart.net/api/artists.json"
-
-
-async function getArtists() {
-    const response = await fetch(artists_url);
-    const data = await response.json();
-    console.log(data);
+function getArt (){
+    for (let i=1; i<1100;i++){
+        $.ajax({
+            url: "http://www.philart.net/api/art/" + i + ".json",
+            success: function(art) {
+                console.log(art.body.location)
+                artArray.push(art)
+            }
+        })
+        console.log(artArray.body.location)
+    }
+    
 }
 
-getArtists();
+getArt()
+
+function initMap() {
+    // The location of Uluru
+    let a = 39.5434;
+    let b = 39.9965;
+    var uluru = {lat: a, lng: b};
+    // The map, centered at Uluru
+    var map = new google.maps.Map(
+        document.getElementById('map'), {zoom: 4, center: uluru});
+    // The marker, positioned at Uluru
+    var marker = new google.maps.Marker({position: uluru, map: map});
+  }
+
+  /////////////////
 
 
+function initMap(data) {
+    // The location of Uluru
+    // let a = data.body.location.latitude;
+    // let b = data.body.location.longitude;
+    var uluru = {lat: 17.5, lng: 28.9};
+    // The map, centered at Uluru
+    var map = new google.maps.Map(
+        document.getElementById('map'), {zoom: 4, center: uluru});
+    // The marker, positioned at Uluru
+    var marker = new google.maps.Marker({position: uluru, map: map});
+  }
 
-
-const artTitle_url = "http://www.philart.net/api/art.json"
-
-
-async function getArtTitle() {
-    const response = await fetch(artTitle_url);
-    const data = await response.json();
-    console.log(data);
-}
-
-getArtTitle();
-//http://www.philart.net/api/art.json
-
-
-
-
-
-
-//$(document).ready(function() {
-//function countries (){
-    $.ajax({
-        url: "http://www.philart.net/api/content/88.json",
-        success: function(countryData) {
-            console.log(countryData)
-//            displayCountryData(countryData)
-        }
-    })
-//}
-//
-//})
-
-
-
-    $.ajax({
-        url: "http://www.philart.net/api/artists/1.json",
-        success: function(countryData) {
-            console.log(countryData)
-//            displayCountryData(countryData)
-        }
-    })
-
-    $.ajax({
-        url: "http://www.philart.net/api/artists.json",
-        success: function(countryData) {
-            console.log(countryData)
-//            displayCountryData(countryData)
-        }
-    })
-
-
-    $.ajax({
-        url: "http://www.philart.net/api/artists/423.json",
-        success: function(countryData) {
-            console.log(countryData)
-//            displayCountryData(countryData)
-        }
-    })
-
-    $.ajax({
-        url: "http://www.philart.net/api/artists/423.json",
-        success: function(artistData) {
-            console.log(artistData.body)
-            console.log(artistData.body.art[0].artists[0].name)
-            console.log(artistData.body.art[0].title.display)
-            console.log(artistData.body.art[0].location)
-            console.log(artistData.body.art[0].pictures[0].large.url)
-        }
-    })
 
 
