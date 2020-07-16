@@ -1,21 +1,27 @@
 let artArray = [];
 
 function getArt (){
-    for (let i=1; i<1100;i++){
+    for (let i=1; i<1089;i++){
         $.ajax({
             url: "http://www.philart.net/api/art/" + i + ".json",
             success: function(art) {
-                console.log(art.body.location)
+                // console.log(art)
+                //console.log(art.body[i].location)
                 artArray.push(art)
+             //   console.log(artArray.body.location)
+             //   console.log(art.body.location)
+             console.log(artArray)
             }
-        })
-        console.log(artArray.body.location)
+                
+            })
     }
     
 }
-
 getArt()
 
+   // console.log(artArray)
+    //console.log(artArray[99].body.location)  // Trying to target location to get longitude and latitude but this is not working, tried parsing the data but it doesn't work.. it is a JSON doc but it doesn't look like console.log(art) returns a JSON object?
+   
 function initMap() {
     // The location of Uluru
     let a = 39.5434;
