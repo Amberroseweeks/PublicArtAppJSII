@@ -1,18 +1,18 @@
 
-// function getArt (){
-//     for (let i=1; i<1089;i++){
-//         $.ajax({
-//             url: "http://www.philart.net/api/art/" + i + ".json",
-//             success: function(art) {
-//                 //console.log(art)
-//                 createArray(art)
-//             }
+function getArt (){
+        $.ajax({
+            url: "https://raw.githubusercontent.com/Amberroseweeks/PublicArtAppJSII/emily/phlPublicArt.json",
+            success: function(jsonMarkers) {
+                //console.log(art)
+                let markers = JSON.parse(jsonMarkers)
+                console.log(markers)
+
+            }
                 
-//          })
-//     }
+         })
+    }
     
-// }
-// getArt()
+getArt()
 
 
 // let artArray = []
@@ -25,43 +25,43 @@
 ///////////////////
 
 // markers array will be replaced with array mde from public art api
-	let markers = [
-	{
-		location: {
-		description: "example description 1",
-		latitude: "39.954750",
-		longitude: "-75.152000",
-		},
-		artists: "Artist Name 1",
-		title: "title 1",
-		type: "medical"
+	// let markers = [
+	// {
+	// 	location: {
+	// 	description: "example description 1",
+	// 	latitude: "39.954750",
+	// 	longitude: "-75.152000",
+	// 	},
+	// 	artists: "Artist Name 1",
+	// 	title: "title 1",
+	// 	type: "medical"
 
-	},
+	// },
 
-	{
-		location: {
-		description: "example description 2",
-		latitude: "39.958320",
-		longitude: "-75.171800"
-		},
-		artists: "Artist Name 2",
-		title: "title 2",
-		type:"women"
+	// {
+	// 	location: {
+	// 	description: "example description 2",
+	// 	latitude: "39.958320",
+	// 	longitude: "-75.171800"
+	// 	},
+	// 	artists: "Artist Name 2",
+	// 	title: "title 2",
+	// 	type:"women"
 
-	},
+	// },
 
-	{
-		location: {
-		description: "example description 2",
-		latitude: "39.958220",
-		longitude: "-75.101800"
-		},
-		artists: "Artist Name 3",
-		title: "title 3",
-		type:"women"
+	// {
+	// 	location: {
+	// 	description: "example description 2",
+	// 	latitude: "39.958220",
+	// 	longitude: "-75.101800"
+	// 	},
+	// 	artists: "Artist Name 3",
+	// 	title: "title 3",
+	// 	type:"women"
 
-	}
-	];
+	// }
+	// ];
 
 function initMap() {
 	//map options
@@ -99,23 +99,23 @@ function addMarker (markers) {
 }
 
 
-// adds markers for everything in array
-// for (let i=0;i<markers.length; i++) {
-// 	addMarker(markers[i])
-// }
+//adds markers for everything in array
+for (let i=0;i<markers.length; i++) {
+	addMarker(markers[i])
+}
 
 
 //Click button to add markers. 
 //This might be good if there are too many markers? we could make only certain markets appear on click 
 //Don't know how to get markers to go away though on click of  a new button
-let women = document.getElementById('women');
-women.addEventListener("click",function() {
-for (let i=0;i<markers.length; i++) {
-	if (markers[i].type ==="women")
-	addMarker(markers[i])
-}
+// let women = document.getElementById('women');
+// women.addEventListener("click",function() {
+// for (let i=0;i<markers.length; i++) {
+// 	if (markers[i].type ==="women")
+// 	addMarker(markers[i])
+// }
 
-})
+// })
 
 
 }
