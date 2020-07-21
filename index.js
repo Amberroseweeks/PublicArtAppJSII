@@ -3,18 +3,19 @@
         function viewCompleteArtistData () {
 //            made a for loop for all the listed artists within the database, i used the artits's id numbers
             var list = [];
-            for (var i = 1; i <= 510; i++) {
+            for (var i = 1; i <= 2; i++) {
             list.push(i);
             }
 //    using the artist id numbers I added that to the url to find the rest of the corresponding data
             for (i = 0; i < list.length; i++) {
             let listFull = list[i]
-            let fullArtistListData = "http://www.philart.net/api/artists/" + listFull + ".json"
+            let fullArtistListData = "http://www.philart.net/api/tours/" + listFull + ".json"
 //    the function that retireves the data
             async function getArtTitleSpecific() {
             const response = await fetch(fullArtistListData);
             const data = await response.json();
             console.log(data.body.art)
+            console.log(data.body.art[0].tours)
 
 //        i created an empty aray to push the data through
             let artistNameListing = [] 
@@ -63,8 +64,8 @@
                 let artLocation = document.getElementById("artlocation");
                 artLocation.innerHTML = data.body.art[0].location.description
                     
-                let artPicture = document.getElementById("photo-container");
-                document.getElementById("photo-container").style.backgroundImage = "url('" + data.body.art[0].pictures[i].large.url + "')";
+                let artPicture = document.getElementsByClassName("image-container")[1];
+                document.getElementsByClassName("image-container").style.backgroundImage = "url('" + data.body.art[0].pictures[i].large.url + "')";
                     
                 let artComments = document.getElementById("artdescription");
                 artComments.innerHTML = data.body.art[0].title.display
