@@ -1,3 +1,20 @@
+
+/* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+       #map {
+        height: 100%;
+      }
+      
+      /* Optional: Makes the sample page fill the window. */
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+/*AW*/
+
 .overlay {
 
   height: 100%;
@@ -71,12 +88,21 @@ input[type=text]:focus {
 }
 
 #top-nav-hero {
+
+  background-image: url("https://drive.google.com/uc?export=view&id=12U6M1QmFHb45JUK2baahQclGwa7k_GMj");
+  height: 300px;
+    width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
   background-color: #f2f2f2;
   height: 300px;
     width: 100%;
 /*  background-position: center;*/
   background-repeat: no-repeat;
 /*  background-size: cover;*/
+
 }
 
 #hero-text {
@@ -298,4 +324,3 @@ color: #ADADAD;
 
     background: #000000;
 }
-
