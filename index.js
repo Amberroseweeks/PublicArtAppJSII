@@ -37,15 +37,55 @@ function initMap() {
             map: map//what map do we want to add it to?
             //icon: 'url for marker image we want to use'
         });
+
+        let infoWindow = new google.maps.InfoWindow({
+            content:
+            "Title:" + artArray.title.display 
+          });
+
+          marker.addListener('click', function(){
+            infoWindow.open(map, marker);
+          });
     }
 
     //artArray()
     
     //adds markers for everything in array
+    // for (let i=0;i<artArray.length; i++) {
+    //                 addMarker(artArray[i])
+    // }
+
+
+
+
+// adds markers for medical only //need to make it so the 0 represents the button that was clicked
+let buttonType = document.getElementsByClassName('category-button')
+
+for (let k=0; k<buttonType.length; k++){
+buttonType[k].addEventListener("click", function () {
+let exhibitName = event.target.innerText
+
     for (let i=0;i<artArray.length; i++) {
-        console.log(artArray[i])
-        addMarker(artArray[i])
+        if (artArray[i].exhibits) {
+            for (let j=0; j<artArray[i].exhibits.length; j++) {
+                if (artArray[i].exhibits[j].name === exhibitName){
+                    addMarker(artArray[i]) 
+                }
+            }
+        }
+        
     }
+})
+}
+
+
+
+
+}// closes initMap
+        
+        
     
-    }
+
+
+
 
