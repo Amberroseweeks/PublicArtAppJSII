@@ -16,6 +16,8 @@ function getartData (){
  }
  getartData()
 
+
+
 function initMap() {
     //map options
     let options = {
@@ -27,7 +29,7 @@ function initMap() {
     let map = new google.maps.Map(document.getElementById('map'),options);
      
     
-    function addMarker (artArray) {
+function addMarker (artArray) {
      //   console.log(artArray)
         let a = parseFloat(artArray.location.latitude);
         let b = parseFloat(artArray.location.longitude);
@@ -46,43 +48,46 @@ function initMap() {
           marker.addListener('click', function(){
             infoWindow.open(map, marker);
           });
+
     }
 
-    //artArray()
-    
-    //adds markers for everything in array
-    // for (let i=0;i<artArray.length; i++) {
-    //                 addMarker(artArray[i])
-    // }
-
-
-
-
-// adds markers for medical only //need to make it so the 0 represents the button that was clicked
 let buttonType = document.getElementsByClassName('category-button')
 
-for (let k=0; k<buttonType.length; k++){
-buttonType[k].addEventListener("click", function () {
-let exhibitName = event.target.innerText
+let categoryMarkers = [];
+function addCategoryMarkers () {
+    
+    for (let k=0; k<buttonType.length; k++){
+    buttonType[k].addEventListener("click", function () {
 
-    for (let i=0;i<artArray.length; i++) {
-        if (artArray[i].exhibits) {
-            for (let j=0; j<artArray[i].exhibits.length; j++) {
-                if (artArray[i].exhibits[j].name === exhibitName){
-                    addMarker(artArray[i]) 
+    let exhibitName = event.target.innerText
+
+        for (let i=0;i<artArray.length; i++) {
+            if (artArray[i].exhibits) {
+                for (let j=0; j<artArray[i].exhibits.length; j++) {
+                    if (artArray[i].exhibits[j].name === exhibitName){
+                        categoryMarkers.push(artArray[i])
+                    }
+
                 }
-            }
+            }        
         }
-        
+
+        for (let i=0; i<categoryMarkers.length; i++){
+            addMarker(categoryMarkers[i])
+
+        }
+    })
     }
-})
 }
-
-
-
+addCategoryMarkers()
 
 }// closes initMap
+
         
+
+
+
+
         
     
 
