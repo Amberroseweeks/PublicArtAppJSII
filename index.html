@@ -29,35 +29,41 @@
 <body>
 
     <div id="top-nav-hero">
-    <div id = "navbar">
+
+    <div class="hero-image"></div>
+    
+        
+    <div class="example"></div>
+    </div>
+    <div id="hero-text"> <center><div class= "headline-text"> Philadelphia Public Art Data Base</div></center><div class = "headline-description">This is a resource that points to Philadelphia’s documented public art works. Using an open source API you are able to discover and locate Philadellphia public art.</div></div>
+
+    
+    
+    <div class="padding"></div>
+        <div id = "navbar">
+            <span class="map-jump-button" id="backtomap" alt-text="view map"><i class='fa fa-map' ></i> View Full Map </span><span class="map-jump-button" id="backtomap" alt-text="view map"><i class='fa fa-sort-up' ></i> *Back to Top* </span><span class="map-jump-button" id="backtomap" alt-text="view map"><i class='fa fa-sort-down' ></i> *Back to Artwork Info* </span>
+<!--
     <div id="search"><div id="sb-search" class="sb-search">
 
 </div>
 
 </div>
+-->
         
         
-    <input type="text" id="search" name="search" placeholder="Search..">
+<!--    <input type="text" id="search" name="search" placeholder="Search..">-->
 
 
     </div>
-    <div class="hero-image"></div>
-    </div>
-    <div id="hero-text"> <center><div class= "headlline-text"> Philadelphia Public Art Data Base</div></center><div class = "headline-description">This is a resource that points to Philadelphia’s documented public art works. Using an open source API you are able to discover and locate Philadellphia public art.</div></div>
-
-    
-    
-    <div id="padding"></div>
     <div id="map-placeholder"><div id="map"></div></div>
-    <div id="conatiner">
+
     <div class="container">
         
             <center>
         <div class="border-container">
-        <div class="hr-section"></div> Browse by Neihborhood<div class="hr-section"></div>
+        <div class="hr-section"></div> <div class="sub-headline-text"> Browse by Category</div><div class="hr-section"></div>
         </div>
         </center>
-        
         
     <center><div class="row">
         
@@ -77,58 +83,54 @@
         
     </div></center>
         
-            <center><div class="row">
-        
+            <center>
+
+    <div class="row">
     <div class="col-sm-4"><div class="category-button"> 
-<!--        <div class="category-button-text-trans">Example </div>-->
+
         Peace and Love
         </div></div>
         <div class="col-sm-4"><div class="category-button"> 
-<!--        <div class="category-button-text-trans">Example </div>-->
+
         Black Lives
         </div></div>
         <div class="col-sm-4"><div class="category-button"> 
-<!--        <div class="category-button-text-trans">Example </div>-->
+
         Religious
         </div></div> 
         
     </div></center>
+        <center>
+        <div class="row">
+    <div class="col-sm-4"><div class="category-button"> 
 
+        Police and Fire Fighters
 
-  <div class="row">
-    <div class="col-md-4">
-        <div class="map-marker-bg"><i class='fas fa-map-marker-alt' style='font-size:42px'></i></div>
-    <div class = "image-container">  <div class="overlay">
-    <div class="text"><div class = "description-container">
-        <div id="maintitle" class="description-h2">TITLE</div>
-        <div id="artTitle" class="description-p"> Art Title</div>
+        </div></div>
+        <div class="col-sm-4"><div class="category-button"> 
+
+        Gargoyles
+        </div></div>
+        <div class="col-sm-4"><div class="category-button"> 
+
+        Favorites
+        </div></div> 
         
-        <div class="description-h2">ARTIST</div>
-        <div id="artistname" class="description-p"> Artist Name</div>
-            
-        <div class="description-h2">YEAR</div>
-        <div id="artyear" class="description-p">Art year</div>
-            
-        <div class="description-h2">LOCATION</div>
-        <div id="artlocation" class="description-p"> Art Location</div>
-            
-        <div class="description-h2">DESCRIPTION</div>
-        <div id ="artdescription" class="description-p"> Art description</div>
-    </div></div>
-  </div></div>    
-
+    </div></center>
+        <div id="viewOptions" class="hidden">
+                <span class="grid-view-button" id="gridview" alt-text="select grid view"><i class='fa fa-th-large' ></i> Grid View </span> <span class="list-view-button" id="listview" onclick="listViewButton()" alt-text="select list view"><i class='fa fa-list'></i> List View </span>   
+            </div>
+<div id="listContainer"></div>  
+    
     </div>
-    </div>
-    <div id="footer"></div>
-        
-
-	<footer></footer>
+    <div id="listContainertwo"></div>
+<!--    view more link-->
+     <center><p class ="showmorelink" id="showmore"></p></center> 
+    	<div class="footer">  </div>  
 	<script type="text/javascript" src="index.js"></script>
     <script type="text/javascript" src="config.js"></script>
     
-        </div>
-        </div>
-    </div>
+     
     </body>
 
 </html>
