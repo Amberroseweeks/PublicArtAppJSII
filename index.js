@@ -446,7 +446,3 @@ clickCategory()
     
 
 }// closes initMap
-
-
-
-
