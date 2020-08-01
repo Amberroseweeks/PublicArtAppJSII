@@ -1,7 +1,8 @@
-// updated
-//testing
-
 let artArray = [];
+let map;
+let marker;
+let buttonType = document.getElementsByClassName('category-button')
+let activeButton = document.getElementsByClassName('category-button-active')
 
 window.addEventListener('load', initMap) 
 
@@ -20,10 +21,6 @@ function getartData (){
  getartData()
 
 function initMap() {
-    
-let buttonType = document.getElementsByClassName('category-button')
-let activeButton = document.getElementsByClassName('category-button-active')
-
     //map options
     let options = {
         zoom: 13,
@@ -31,16 +28,14 @@ let activeButton = document.getElementsByClassName('category-button-active')
     }
     
     // new map
-    let map = new google.maps.Map(document.getElementById('map'),options);
-     
-
+    map = new google.maps.Map(document.getElementById('map'),options);
+}
 
 //add markers 
 function addMarker (artArray) {
-     //   console.log(artArray)
         let a = parseFloat(artArray.location.latitude);
         let b = parseFloat(artArray.location.longitude);
-        let marker = new google.maps.Marker({
+        marker = new google.maps.Marker({
             position: {lat:a, lng:b},
             map: map//what map do we want to add it to?
             //icon: 'url for marker image we want to use'
@@ -51,11 +46,12 @@ function addMarker (artArray) {
             '<br>' +
             '<img src="' + artArray.pictures[0].large.url + '"">'
           });
+          
           google.maps.event.addListener(marker, 'click', function(){
-            infoWindow.close();
             infoWindow.open(map, marker);
           });
-    }
+}
+
 // function that creates info windows based on markers clicked from the list
 function addMarkerSelection (categoryMarkers) {    
         selectedmarker = new google.maps.Marker({
@@ -78,21 +74,19 @@ function clickCategory () {
             listContainer.innerHTML = ""; //clears the previous list results on click
             let categoryMarkers = [];
             let exhibitName = event.target.innerText
-            console.log(categoryMarkers)
-
 
 //loops through all button types and find the button that was clicked, makes it the active button, it also remove active button class from all 
 //buttons that were not clicked.
 
-for (let l =0; l < buttonType.length; l++) {
-   if (buttonType[l].innerText === exhibitName) {
-     buttonType[l].classList.add("category-button-active")
-   }
+        for (let l =0; l < buttonType.length; l++) {
+        if (buttonType[l].innerText === exhibitName) {
+            buttonType[l].classList.add("category-button-active")
+        }
 
-   else if (buttonType[l].innerText !== exhibitName) {
-    buttonType[l].classList.remove("category-button-active")
-    }
-}
+        else if (buttonType[l].innerText !== exhibitName) {
+            buttonType[l].classList.remove("category-button-active")
+            }
+        }
 
 //loops through the art array looking for pieces of art in the category that was clicked and adds the to the map
         for (let i=0;i<artArray.length; i++) {
@@ -190,22 +184,14 @@ for (let l =0; l < buttonType.length; l++) {
             }
 
             artCard.appendChild(artLocation)
-        
     }
 
     })//closes event listener
     
     }
-    
 
 } // closes click category
 clickCategory()
-  
-    
-    
-
-}// closes initMap
-
 
 
 
