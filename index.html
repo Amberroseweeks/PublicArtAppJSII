@@ -5,20 +5,19 @@
 	<meta charset="utf-8">
     <title>Example Title</title>
 	<meta name="author" content="Your Name">
-	<meta name="description" content="Example description">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	 <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <meta name="description" content="Example description">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	 <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAAY7s8JaFP0M6jgMqiZi9bOXBGi9upM6A&callback=initMap&libraries=&v=weekly" defer>     
+    </script>
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAAY7s8JaFP0M6jgMqiZi9bOXBGi9upM6A&callback=initMap&libraries=&v=weekly" defer>
-      	
-      </script>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Roboto+Slab:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 	<link rel="stylesheet" href="index.css">
-    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<link rel="icon" type="image/x-icon" href=""/>
-    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -29,105 +28,111 @@
 <body>
 
     <div id="top-nav-hero">
-
-    <div class="hero-image"></div>
-    
-        
-    <div class="example"></div>
+        <div class="hero-image"></div>
     </div>
-    <div id="hero-text"> <center><div class= "headline-text"> Philadelphia Public Art Data Base</div></center><div class = "headline-description">This is a resource that points to Philadelphia’s documented public art works. Using an open source API you are able to discover and locate Philadellphia public art.</div></div>
+
+    <div id="hero-text"> 
+        <center>
+        <div class= "headline-text"> Philadelphia Public Art Database</div>
+        </center>
+        <div class = "headline-description">This is a resource that points to Philadelphia’s documented public art works. Using an open source API you are able to discover and locate Philadellphia public art.</div>
+    </div>
 
     
     
     <div class="padding"></div>
         <div id = "navbar">
-            <span class="map-jump-button" id="backtomap" alt-text="view map"><i class='fa fa-map' ></i> View Full Map </span><span class="map-jump-button" id="backtomap" alt-text="view map"><i class='fa fa-sort-up' ></i> *Back to Top* </span><span class="map-jump-button" id="backtomap" alt-text="view map"><i class='fa fa-sort-down' ></i> *Back to Artwork Info* </span>
-<!--
-    <div id="search"><div id="sb-search" class="sb-search">
-
-</div>
-
-</div>
--->
-        
-        
-<!--    <input type="text" id="search" name="search" placeholder="Search..">-->
-
-
+            <span class="map-jump-button" id="view-full-map" alt-text="view map"><i class='fa fa-map' ></i> View Full Map </span>
+            <span class="map-jump-button" id="back-to-top" alt-text="view map"><i class='fa fa-sort-up' ></i>Back to Top</span>
+            <span class="map-jump-button" id="back-to-art" alt-text="view map"><i class='fa fa-sort-down' ></i>Back to Artwork Info</span>
     </div>
+
     <div id="map-placeholder"><div id="map"></div></div>
 
     <div class="container">
         
-            <center>
+        <center>
         <div class="border-container">
-        <div class="hr-section"></div> <div class="sub-headline-text"> Browse by Category</div><div class="hr-section"></div>
+            <div class="hr-section"></div> <div class="sub-headline-text"> Browse by Category</div><div class="hr-section"></div>
         </div>
         </center>
         
-    <center><div class="row">
-        
+
+        <center>
+        <div class="row">
         <p id="demo"></p>
-    <div class="col-sm-4"><div class="category-button"> 
-<!--        <div class="category-button-text-trans">Example </div>-->
-        Athletic
+        <div class="col-sm-4"><div class="category-button" data-button="Athletic" > 
+            Athletic
         </div></div>
-        <div class="col-sm-4"><div class="category-button"> 
-<!--        <div class="category-button-text-trans">Example </div>-->
-        Medical
+
+        <div  class="col-sm-4"><div class="category-button" data-button="Medical"> 
+            Medical
         </div></div>
-        <div class="col-sm-4"><div class="category-button"> 
-<!--        <div class="category-button-text-trans">Example </div>-->
-        War
+
+        <div  class="col-sm-4"><div class="category-button" data-button="War"> 
+            War
         </div></div> 
         
-    </div></center>
+        </div>
+        </center>
         
-            <center>
-
-    <div class="row">
-    <div class="col-sm-4"><div class="category-button"> 
-
+        <center>
+        <div class="row">
+        <div  class="col-sm-4"><div class="category-button" data-button="Peace and Love"> 
         Peace and Love
         </div></div>
-        <div class="col-sm-4"><div class="category-button"> 
 
+        <div  class="col-sm-4"><div class="category-button" data-button="Black Lives"> 
         Black Lives
         </div></div>
-        <div class="col-sm-4"><div class="category-button"> 
 
+        <div  class="col-sm-4"><div class="category-button" data-button="Religious"> 
         Religious
         </div></div> 
         
-    </div></center>
+        </div>
+        </center>
+
         <center>
         <div class="row">
-    <div class="col-sm-4">
-        <div class="category-button"> 
+        <div class="col-sm-4">
+        <div class="category-button" data-button="Police and Fire Fighters"> 
 
-        Police and Fire Fighters
+        First Responders
 
         </div>
-            </div>
-        <div class="col-sm-4"><div class="category-button"> 
+        </div>
 
+        <div  class="col-sm-4"><div class="category-button" data-button="Gargoyles"> 
         Gargoyles
         </div></div>
-        <div class="col-sm-4"><div class="category-button"> 
 
+        <div  class="col-sm-4"><div class="category-button" data-button="Favorites"> 
         Favorites
         </div></div> 
         
-    </div></center>
+        </div>
+        </center>
+
         <div id="viewOptions" class="hidden">
-                <span class="grid-view-button" id="gridview" alt-text="select grid view"><i class='fa fa-th-large' ></i> Grid View </span> <span class="list-view-button" id="listview" onclick="listViewButton()" alt-text="select list view"><i class='fa fa-list'></i> List View </span>   
-            </div>
-<div id="listContainer"></div>  
-    
-    </div>
-    <div id="listContainertwo"></div>
+                <span class="grid-view-button" id="gridview" alt-text="select grid view">
+                <i class='fa fa-th-large' ></i> Grid View </span> 
+
+                <span class="list-view-button" id="listview" alt-text="select list view">
+                <i class='fa fa-list'></i> List View </span>   
+        </div>
+
+<div id="gridContainer"></div>  
+<div id="listContainer"></div>
+
+</div>
+
 <!--    view more link-->
-     <center><p class ="showmorelink" id="showmore"></p></center> 
+    <center>
+    <div id="showmore">
+    <div class="container my-2 t1">
+    </div>
+    </div></center> 
     	<div class="footer">  </div>  
 	<script type="text/javascript" src="index.js"></script>
     <script type="text/javascript" src="config.js"></script>
