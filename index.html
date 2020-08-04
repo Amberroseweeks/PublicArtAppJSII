@@ -10,19 +10,20 @@
 	 <script
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAAY7s8JaFP0M6jgMqiZi9bOXBGi9upM6A&callback=initMap&libraries=&v=weekly" defer>     
     </script>
-	<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<!--    fonts-->
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+<!--    map API-->
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Roboto+Slab:wght@500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 	<link rel="stylesheet" href="index.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<link rel="icon" type="image/x-icon" href=""/>
+<!--    bootstrap for layout-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<!--    ajax jquery-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!--    bootstraps JS-->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<!--    fontawesome needs JS-->
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-    
 </head>
 
 <body>
@@ -33,9 +34,9 @@
 
     <div id="hero-text"> 
         <center>
-        <div class= "headline-text"> Philadelphia Public Art Database</div>
+            <div class= "headline-text"> <span class="bracket-treatment">[</span>Philadelphia Public Art Database<span class="bracket-treatment">]</span></div>
         </center>
-        <div class = "headline-description">This is a resource that points to Philadelphia’s documented public art works. Using an open source API you are able to discover and locate Philadellphia public art.</div>
+        <div class = "headline-description">Browse a selection of public artworks found in the city of Philadelphia.  Philadelphia is known for it's rich history that is spotlighted by the abundance of sculptures, reliefs, mosaics, light displays, fountains and memorials found throughout the city. </div>
     </div>
 
     
@@ -125,15 +126,19 @@
 <div id="gridContainer"></div>  
 <div id="listContainer"></div>
 
-</div>
+
 
 <!--    view more link-->
-    <center>
+<center>
+    <div id="paginationSection" class="pagination">
     <div id="showmore">
-    <div class="container my-2 t1">
     </div>
-    </div></center> 
-    	<div class="footer">  </div>  
+        <div id="showmorelist">
+    </div>
+
+    </div></div>
+    </center> 
+    	<div class="footer">All data courtesy of &nbsp;<a href="https://www.philart.net/api.html"> PhilaArt.net</a></div>  
 	<script type="text/javascript" src="index.js"></script>
     <script type="text/javascript" src="config.js"></script>
     

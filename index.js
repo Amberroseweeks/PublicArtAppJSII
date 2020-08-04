@@ -9,6 +9,14 @@ let buttonType = document.getElementsByClassName('category-button')
 let activeButton = document.getElementsByClassName('category-button-active')
 let phl = {lat:39.9526, lng: -75.1652}
 
+let paginationSection = document.getElementById("paginationSection")
+let paginationPageNumbers = document.getElementById("showmore")
+let paginationPageNumbersList = document.getElementById("showmorelist")
+let listviewoption = document.getElementById("listview");
+
+
+
+
 
 //creates sticky navbar on scroll
 window.onscroll = function() {stickyNav()};
@@ -56,8 +64,11 @@ function clickCategory () {
    let listContainer = document.getElementById('listContainer') //container for all the list results 
     for (let k=0; k<buttonType.length; k++){
         buttonType[k].addEventListener("click", function () {
+        document.getElementById("showmorelist").innerHTML = "";
+        document.getElementById("showmore").innerHTML = "";
             //if on list view switch back to grid view when clicking new category
             if (listContainer.style.display = "block") {
+//                document.getElementById("showmorelist").innerHTML = "";
                 listContainer.style.display = "none";
                 gridContainer.style.display = "block";
             }
@@ -68,6 +79,8 @@ function clickCategory () {
             map.panTo(phl); //re centers the map when a new category is clicked
             gridContainer.innerHTML = ""; //clears the previous list results on click
             listContainer.innerHTML = ""; //clears the previous list results on click
+
+            
             categoryMarkers = []; //clears array on each click allowing list view to change
             let exhibitName = event.target.dataset.button //get the text of the clicked button
             
@@ -100,11 +113,11 @@ function clickCategory () {
                 }
             }
         }
-
-        var a = "View More"
-        document.getElementById("showmore").style.display="block";
+//clear pagination div
+            paginationPageNumbers.innerHTML = "";
+            paginationPageNumbersList.innerHTML = "";  
             
-//pagination
+////pagination
 $(document).ready( function pagination() {
     //    document.getElementById("showmore").style.display = "block"
       $('.t1').after('<div id="nav" class="text-center"></div>');
@@ -112,13 +125,11 @@ $(document).ready( function pagination() {
       var rowsTotal = $('.col-md-4').length;
       var numPages = rowsTotal / rowsShown;
       for (i = 0; i < numPages; i++) {
-        var pageNum = i + 1;
-    
-        $('#nav').append('<a href="#" class="btn-outline-info" rel="' + i + '">&emsp;' + pageNum + '&emsp;</a> ');
-        document.getElementById("showmore").innerHTML= '<div id="nav" class="text-center"><a href="#" class="btn-outline-info" rel="' + i + '">&emsp;' + pageNum + '&emsp;</a></div>';
-    
+        var pageNum = i +1;
+          
+        document.getElementById("showmore").innerHTML += '<span id="nav" class="text-center"><a href="#" class="btn-outline-info" rel="' + i + '">&emsp;' + pageNum + '&emsp;</a> </span>';
+        
       }
-    
       $('.col-md-4').hide();
       $('.col-md-4').slice(0, rowsShown).show();
       $('#nav a:first').addClass('active');
@@ -135,17 +146,22 @@ $(document).ready( function pagination() {
           opacity: 1
         }, 300);
     
+          
+          
       });
                   
     });             
-//end pagination
+////end pagination
 
+            
         addMarker () //adds categoryArray markers to the map on click
         createResultsGrid()
         createResultsList()
         })//closes event listener   
     }
-                        
+        
+    
+    
 } // closes click category
 clickCategory()
 
@@ -279,54 +295,21 @@ function createResultsGrid (){
     }
 }
 
-//when you click List View this is what happens
-function createResultsList () {
-    let listviewoption = document.getElementById("listview");
 
     listviewoption.addEventListener("click", function (){
+
         document.getElementById("listContainer").style.display ="block";
         document.getElementById("gridContainer").style.display ="none";
 
-                //listview pagination
-$(document).ready(function sortlistview() {
-    //divide content by class list name
-  $('.t1').after('<div id="nav" class="text-center"></div>');
-  var rowsShownList = 8;
-  var rowsTotalList = $('.artlistview').length;
-  var numPagesList = rowsTotalList / rowsShownList;
-    //for loop to loop through total content in class list
-  for (i = 0; i < numPagesList; i++) {
-    var pageNumList = i + 1;
-      //make the link with numbers of items in the above class list
-    $('#nav').append('<a href="#" class="btn-outline-info" rel="' + i + '">&emsp;' + pageNumList + '&emsp;</a> ');
-  }
-    //hide classlist content
-  $('.artlistview').hide();
-    //dividing the class list content by the row number and showing it divided by specified number
-  $('.artlistview').slice(0, rowsShownList).show();
+})
+
+
+//when you click List View this is what happens
+function createResultsList () {
     
-//  $('#nav a:first').addClass('active');
-  $('#nav a').bind('click', function(e) {
-      //remove and add selected page number highlight and remove default link action
-  	e.preventDefault();
-    $('#nav a').removeClass('active');
-    $(this).addClass('active');
-      
-    var currPageList = $(this).attr('rel');
-    //first number of new list
-    var startItemList = currPageList * rowsShownList;
-    //last number of new list
-    var endItemList = startItemList + rowsShownList;
-      console.log(startItemList)
-      //animate transition and display content as block
-    $('.artlistview').css('opacity', '0').hide().slice(startItemList, endItemList).
-    css('display', 'block').animate({
-      opacity: 1
-    }, 300);
-  });
-});
+
+
         for (let j = 0; j < categoryMarkers.length; j++) {
-            console.log(categoryMarkers[j])
             //list view button function
             let artListViewContainer = document.createElement('div')
             //create style and size for list item
@@ -422,17 +405,129 @@ $(document).ready(function sortlistview() {
                 artListViewContainer.appendChild(artLocationListview)
 
                 listContainer.appendChild(artListViewContainer)
+            
+            
+            
     }
-})
+        
+        
+        
+        
+
 }
+
+
 function returnToGrid () {
     let gridviewoption = document.getElementById("gridview")
     gridviewoption.addEventListener("click", function () {
+
         document.getElementById("listContainer").style.display ="none";
         document.getElementById("gridContainer").style.display ="block";
+        
+        //clear pagination div
+            paginationPageNumbers.innerHTML = "";
+            paginationPageNumbersList.innerHTML = ""; 
+        
+        ////pagination
+$(document).ready( function pagination() {
+    //    document.getElementById("showmore").style.display = "block"
+      $('.t1').after('<div id="nav" class="text-center"></div>');
+      var rowsShown = 6;
+      var rowsTotal = $('.col-md-4').length;
+      var numPages = rowsTotal / rowsShown;
+      for (i = 0; i < numPages; i++) {
+        var pageNum = i +1;
+          
+        document.getElementById("showmore").innerHTML += '<span id="nav" class="text-center"><a href="#" class="btn-outline-info" rel="' + i + '">&emsp;' + pageNum + '&emsp;</a> </span>';
+        
+      }
+      $('.col-md-4').hide();
+      $('.col-md-4').slice(0, rowsShown).show();
+      $('#nav a:first').addClass('active');
+                            
+      $('#nav a').bind('click', function(e) {
+          e.preventDefault();
+        $('#nav a').removeClass('active');
+        $(this).addClass('active');
+        var currPage = $(this).attr('rel');
+        var startItem = currPage * rowsShown;
+        var endItem = startItem + rowsShown;
+        $('.col-md-4').css('opacity', '0').hide().slice(startItem, endItem).
+        css('display', 'block').animate({
+          opacity: 1
+        }, 300);
+    
+          
+          
+      });
+                  
+    });             
+////end pagination
+
     })
 }
+
+
 returnToGrid()
+
+function returnToList () {
+    let listviewoption = document.getElementById("listview")
+    listviewoption.addEventListener("click", function () {
+        
+        document.getElementById("gridContainer").style.display ="none";
+        document.getElementById("listContainer").style.display ="block";
+//        paginationPageNumbers.style.display = "none";
+
+        document.getElementById("showmorelist").innerHTML = "";
+        document.getElementById("showmore").innerHTML = "";
+        
+        
+        //listview pagination
+$(document).ready(function paginationList() {
+    //divide content by class list name
+  $('.t1').after('<div id="nav" class="text-center"></div>');
+  var rowsShownList = 8;
+  var rowsTotalList = $('.artlistview').length;
+  var numPagesList = rowsTotalList / rowsShownList;
+    //for loop to loop through total content in class list
+  for (i = 0; i < numPagesList; i++) {
+    var pageNumList = i + 1;
+      //make the link with numbers of items in the above class list
+//    $('#nav').append('<a href="#" class="btn-outline-info" rel="' + i + '">&emsp;' + pageNumList + '&emsp;</a> ');
+//        document.getElementById("showmore").innerHTML = "";   
+document.getElementById("showmore").innerHTML += '<span id="nav" class="text-center"><a href="#" class="btn-outline-info" rel="' + i + '">&emsp;' + pageNumList + '&emsp;</a> </span>';
+  }
+    //hide classlist content
+  $('.artlistview').hide();
+    //dividing the class list content by the row number and showing it divided by specified number
+  $('.artlistview').slice(0, rowsShownList).show();
+    
+//  $('#nav a:first').addClass('active');
+  $('#nav a').bind('click', function(e) {
+      //remove and add selected page number highlight and remove default link action
+  	e.preventDefault();
+    $('#nav a').removeClass('active');
+    $(this).addClass('active');
+      
+    var currPageList = $(this).attr('rel');
+    //first number of new list
+    var startItemList = currPageList * rowsShownList;
+    //last number of new list
+    var endItemList = startItemList + rowsShownList;
+
+      //animate transition and display content as block
+    $('.artlistview').css('opacity', '0').hide().slice(startItemList, endItemList).
+    css('display', 'block').animate({
+      opacity: 1
+    }, 300);
+  });
+
+});
+        
+        ////pagination
+    })
+}
+returnToList()
 
 // only works after button is clicked the second time?
 function fullMap (){
@@ -473,4 +568,3 @@ function scrollFeatures () {
     })
 }
 scrollFeatures()
-
