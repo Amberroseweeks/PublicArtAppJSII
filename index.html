@@ -8,7 +8,7 @@
     <meta name="description" content="Example description">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	 <script
-    src="https://maps.googleapis.com/maps/api/js?key=>>>APIKEYHERE<<<<&callback=initMap&libraries=&v=weekly" defer>     
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAAY7s8JaFP0M6jgMqiZi9bOXBGi9upM6A&callback=initMap&libraries=&v=weekly" defer>     
     </script>
 	<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -33,7 +33,7 @@
 
     <div id="hero-text"> 
         <center>
-        <div class= "headline-text"> Philadelphia Public Art Database</div>
+        <div class= "headline-text"> <span class="bracket-treatment">[</span>Philadelphia Public Art Database<span class="bracket-treatment">]</span></div>
         </center>
         <div class = "headline-description">This is a resource that points to Philadelphia’s documented public art works. Using an open source API you are able to discover and locate Philadellphia public art.</div>
     </div>
@@ -122,17 +122,25 @@
                 <i class='fa fa-list'></i> List View </span>   
         </div>
 
-<div id="gridContainer"></div>  
-<div id="listContainer"></div>
+<div id="gridContainer">    
+
+    </div>  
+<div id="listContainer">
+
+    </div>
 
 </div>
 
 <!--    view more link-->
     <center>
+    <div id="paginationSection" class="pagination">
     <div id="showmore">
-    <div class="container my-2 t1">
     </div>
-    </div></center> 
+        <div id="showmorelist">
+    </div>
+
+    </div>
+    </center> 
     	<div class="footer">  </div>  
 	<script type="text/javascript" src="index.js"></script>
     <script type="text/javascript" src="config.js"></script>

@@ -8,6 +8,38 @@ html,body {
 	margin: 0;
 	padding: 0;
 }
+
+
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+  border: 1px solid #ddd;
+  margin: 0 4px;
+}
+
+.pagination a.active {
+  background-color: #000000;
+  color: white;
+  border: 1px solid #000000;
+text-decoration: none;
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.pagination a:hover:not(.active) {
+    background-color: #ddd;
+    text-decoration: none;
+
+}
+
+
+.bracket-treatment {
+    color: #E61717;
+    font-size: 30px;
+}
 #viewOptions.hidden {
 	display: none;
 }
@@ -166,7 +198,7 @@ input[type=text]:focus {
 	flex-direction: row;
 	background-color: #e6e6e6;
 	margin-left: 5%;
-	width: 85%;
+	width: 95%;
 }
 
 /*PAGINATION*/
